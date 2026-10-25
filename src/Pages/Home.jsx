@@ -2,9 +2,12 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import BlogCard from "../Components/BlogCard";
+import SearchBar from "../Components/SearchBar";
+import CategoryFilter from "../Components/CategoryFilter";
 
 function Home() {
   const posts = useSelector((state) => state.blogs.posts);
+
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
@@ -28,29 +31,24 @@ function Home() {
     <>
       <section className="hero">
         <p className="hero-label">WELCOME TO MY BLOG</p>
+
         <h1>Stories, Ideas &amp; Inspiration</h1>
+
         <p className="hero-description">
           Share your thoughts, explore new ideas, and learn something new every day.
         </p>
 
         <div className="hero-filters">
-          <input
-            type="search"
-            placeholder="Search blogs by title..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
+          <SearchBar
+            search={search}
+            setSearch={setSearch}
           />
 
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            {categories.map((item) => (
-              <option key={item} value={item}>
-                {item === "All" ? "All Categories" : item}
-              </option>
-            ))}
-          </select>
+          <CategoryFilter
+            categories={categories}
+            category={category}
+            setCategory={setCategory}
+          />
         </div>
       </section>
 
@@ -60,11 +58,14 @@ function Home() {
             <p className="section-label">EXPLORE THE LATEST</p>
             <h2>Latest Blogs</h2>
           </div>
+
           <span>{filteredPosts.length} blogs found</span>
         </div>
 
         {filteredPosts.length === 0 ? (
-          <p className="empty-message">No blogs found. Try another search.</p>
+          <p className="empty-message">
+            No blogs found. Try another search.
+          </p>
         ) : (
           <div className="blog-list">
             {filteredPosts.map((post) => (

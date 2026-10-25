@@ -1,9 +1,17 @@
-import React from 'react'
 
-const CategoryFilter = () => {
+function CategoryFilter({ categories, category, setCategory }) {
   return (
-    <div>CategoryFilter</div>
-  )
+    <select
+      value={category}
+      onChange={(e) => setCategory(e.target.value)}
+    >
+      {categories.map((item) => (
+        <option key={item} value={item}>
+          {item === "All" ? "All Categories" : item}
+        </option>
+      ))}
+    </select>
+  );
 }
 
-export default CategoryFilter
+export default CategoryFilter;
