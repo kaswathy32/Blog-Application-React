@@ -494,15 +494,57 @@
   margin-bottom: 25px;
 }
 
+
+
 .home-button {
-  background: #6366f1;
-  color: white;
+  display: inline-block;
+  background-color: #17365D;
+  color: #ffffff;
   padding: 12px 24px;
+  border: 1px solid #17365D;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
 .home-button:hover {
-  background: #4f46e5;
+  background-color: #0B1F3A;
+  border-color: #0B1F3A;
+  color: #ffffff;
+}
+
+
+
+
+
+/* Blue primary buttons */
+.blog-actions a:first-child,
+.blog-form button,
+.blog-details button,
+.home-button {
+  background: #2563eb;
+  border: 1px solid #2563eb;
+  color: #ffffff;
+}
+
+.blog-actions a:first-child:hover,
+.blog-form button:hover,
+.blog-details button:hover,
+.home-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #ffffff;
+}
+
+/* Blue Delete button is not included */
+.blog-actions button {
+  background: #ffffff;
+  color: #dc3545;
+  border-color: #ffd3d7;
+}
+
+.blog-actions button:hover {
+  background: #fff0f1;
+  color: #bd1e2d;
 }
