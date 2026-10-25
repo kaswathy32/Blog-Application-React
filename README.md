@@ -1,4 +1,4 @@
-# Blog Application
+# # Blog Application
 
 A responsive blog application built using React and Vite.
 
